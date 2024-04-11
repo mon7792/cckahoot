@@ -10,7 +10,7 @@ export default function Home() {
       <Image src="/kwizzard.svg" alt="HedgeHoots Logo" width={100} height={100} />
       <h1 className="text-5xl font-bold text-green-500">Make learning awesome!</h1>
       <h3 className="text-3xl font-bold text-green-500">Engage your audience</h3>
-      <Link href="/play" className="pt-4">
+      <Link href="/create" className="pt-4">
         <Button variant="secondary" className="text-lg text-white tracking-wide">
         <Pickaxe className="mr-2" />
           Create</Button>

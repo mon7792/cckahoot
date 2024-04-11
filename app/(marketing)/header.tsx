@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-
-import { PlayIcon } from "lucide-react";
+import { ClerkLoaded, ClerkLoading, SignedIn, UserButton, SignInButton, SignedOut } from "@clerk/nextjs";
+import { Loader, PlayIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button"
 export const Header = () => {
@@ -22,6 +22,28 @@ export const Header = () => {
                         <PlayIcon className="mr-2 text-white" />
                         Play</Button>
                 </Link>
+
+                {/* user button/ login */}
+                <ClerkLoading>
+                    <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
+                </ClerkLoading>
+                <ClerkLoaded>
+                    <SignedIn>
+                        <div className="border-[5px] border-green-600 rounded-3xl">
+                        <UserButton afterSignOutUrl="/" />
+                        </div>
+                        
+                    </SignedIn>
+                    <SignedOut>
+                        <SignInButton
+                            mode="modal"
+                            afterSignInUrl="/"
+                            afterSignUpUrl="/"
+                        >
+                            <Button variant="ghost" size="lg" className="text-lg">Login</Button>
+                        </SignInButton>
+                    </SignedOut>
+                </ClerkLoaded>
             </div>
         </div>
     </header>)
