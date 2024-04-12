@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ClerkLoaded, ClerkLoading, SignedIn, UserButton, SignInButton, SignedOut } from "@clerk/nextjs";
-import { Loader, PlayIcon, ChevronRight, Pencil, Save } from "lucide-react";
+import { Loader, ChevronRight, Pencil, BadgeX, Save } from "lucide-react";
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input";
@@ -21,7 +21,7 @@ export const Header = () => {
         setEdit(false);
     }
 
-    return (<header className="h-20 w-full border-b-2 border-slate-200 px-4 content-center">
+    return (<header className="z-[10] h-20 w-full border-b-2 border-slate-200 px-4 content-center bg-white">
         <div className="flex flex-row items-center justify-between">
             {/* logo */}
             <div className="flex flex-row items-center">
@@ -47,11 +47,18 @@ export const Header = () => {
 
             {/* nav */}
             <div className="flex flex-row items-center gap-1">
-                <Link href="/create">
-                    <Button variant="secondary" className="text-lg text-white tracking-wide">
-                        <PlayIcon className="mr-2 text-white" />
-                        Play</Button>
+                <Link href="/">
+                    <Button variant="dangerOutline" className="text-lg tracking-wide">
+                        <BadgeX className="mr-2" />
+                        Exit</Button>
                 </Link>
+
+
+                {/* TODO: add the link to save the hoots */}
+                <Button variant="secondary" className="text-lg text-white tracking-wide">
+                    <Save className="mr-2 text-white" />
+                    Done</Button>
+
 
                 {/* user button/ login */}
                 <ClerkLoading>

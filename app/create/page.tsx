@@ -62,7 +62,7 @@ const Page = () => {
             </div>
 
             <div className="pt-8">
-                <Button size="lg" variant="secondary" className="text-lg" onClick={() => console.log(hoots)}>
+                <Button size="lg" variant="secondary" className="text-lg cursor-pointer" onClick={() => console.log(hoots)}>
                     <Plus />
                     
                     Add</Button>

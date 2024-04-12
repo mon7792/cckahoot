@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const Footer = () => {
-    return (<footer className="h-10 w-full border-t-2 border-slate-200 px-4 content-center">
+    return (<footer className=" z-[10] h-10 w-full border-t-2 border-slate-200 px-4 content-center bg-white">
         <div className="flex flex-col items-center">
             <div className="flex flex-row items-center">
                 Made with<Image src="/heart.svg" alt="HedgeHoots Logo" className="mx-2" width={20} height={20} />by
