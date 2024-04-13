@@ -8,7 +8,7 @@ const defQuestion: question = {
     id: activeQuestionId,
     title: "",
     options: [
-        { type: "triangle", answer: "", isCorrect: false },
+        { type: "triangle", answer: "", isCorrect: true },
         { type: "circle", answer: "", isCorrect: false },
         { type: "square", answer: "", isCorrect: false },
         { type: "diamond", answer: "", isCorrect: false },
@@ -26,6 +26,7 @@ type CreateHootState = {
     deleteQuestion: (id: string) => void;
     setActiveQuestion: (id: string) => void;
     setOptions: (id: string, type: "triangle" | "circle" | "square" | "diamond", value: string, isCorrect: boolean) => void;
+    setCheckedOption: (id: string, type: "triangle" | "circle" | "square" | "diamond", isChecked: boolean) => void;
 }
 
 
@@ -66,6 +67,22 @@ export const useCreateHoots = create<CreateHootState>((set) => ({
                             return { ...option, answer: value, isCorrect };
                         }
                         return option;
+                    })
+                }
+            }
+            return question;
+        })
+    })),
+    setCheckedOption: (id, type, isChecked) => set((state) => ({
+        questions: state.questions.map((question) => {
+            if (question.id === id) {
+                return {
+                    ...question,
+                    options: question.options.map((option) => {
+                        if (option.type === type) {
+                            return { ...option, isCorrect: isChecked };
+                        }
+                        return { ...option, isCorrect: !isChecked };;
                     })
                 }
             }
