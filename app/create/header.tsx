@@ -8,9 +8,10 @@ import { Loader, ChevronRight, Pencil, BadgeX, Save } from "lucide-react";
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input";
+import { useCreateHoots } from "@/store/use-create-hoots";
 export const Header = () => {
 
-    const [title, setTitle] = useState("Untitled");
+    const {title, setTitle} = useCreateHoots();
     const [edit, setEdit] = useState(false);
 
 
